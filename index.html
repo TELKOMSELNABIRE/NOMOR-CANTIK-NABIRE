@@ -32,13 +32,18 @@
 <div id="list">Loading...</div>
 
 <script>
-const API_URL = "https://script.google.com/macros/s/AKfycby4p5Bp_tl5yRnCNz3CxIOjlWoJdyPp6dlyFkOsqMqrA56m2j4Xt2RNz8SNqAHT411mFw/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbwSLeizLGNBLjXNpEpgLyORSVEZZUbwIGFA7cFIhsXrPrzOzuQwnETUcLYHjB_qE7Ofwg/exec";
 
 fetch(API_URL)
-  .then(res => res.json())
+  .then(r => r.json())
   .then(data => {
     const list = document.getElementById("list");
     list.innerHTML = "";
+
+    if (data.error) {
+      list.innerHTML = data.error;
+      return;
+    }
 
     data.forEach(item => {
       const harga = parseInt(
@@ -47,24 +52,23 @@ fetch(API_URL)
 
       list.innerHTML += `
         <div class="border rounded-2xl p-6 shadow">
-          <div class="text-lg font-bold">${item.nomor}</div>
-          <div class="text-sm text-gray-500">${item.kategori}</div>
-          <div class="text-green-600 font-extrabold text-xl">
+          <div class="font-bold">${item.nomor}</div>
+          <div class="text-gray-500">${item.kategori}</div>
+          <div class="text-green-600 font-extrabold">
             Rp ${harga.toLocaleString()}
           </div>
         </div>
       `;
     });
-  });
   })
   .catch(err => {
-    document.getElementById("list").innerHTML =
-      "<p class='col-span-full text-center text-red-500'>Gagal memuat data</p>";
+    document.getElementById("list").innerText = "Gagal memuat data";
     console.error(err);
   });
 </script>
 </body>
 </html>
+
 
 
 
