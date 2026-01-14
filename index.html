@@ -45,19 +45,17 @@ fetch(API_URL)
       return;
     }
 
-    data.forEach(item => {
-      list.innerHTML += `
-        <div class="card">
-          <div><b>Nomor:</b> ${item.nomor}</div>
-          <div><b>Kategori:</b> ${item.kategori}</div>
-          <div class="harga">Rp ${Number(item.harga).toLocaleString()}</div>
-          <a class="btn" target="_blank"
-             href="https://wa.me/62XXXXXXXXXX?text=Saya%20minat%20nomor%20${item.nomor}">
-             Pesan via WhatsApp
-          </a>
-        </div>
-      `;
-    });
+data.forEach(item => {
+  list.innerHTML += `
+    <div class="border rounded-2xl p-6 shadow hover:shadow-lg transition">
+      <div class="text-lg font-bold mb-1">${item.nomor}</div>
+      <div class="text-sm text-gray-500 mb-2">${item.kategori}</div>
+      <div class="text-green-600 font-extrabold text-xl">
+        Rp ${Number(item.harga).toLocaleString()}
+      </div>
+    </div>
+  `;
+});
   })
   .catch(err => {
     document.getElementById("list").innerHTML = "Gagal memuat data";
@@ -67,4 +65,5 @@ fetch(API_URL)
 
 </body>
 </html>
+
 
