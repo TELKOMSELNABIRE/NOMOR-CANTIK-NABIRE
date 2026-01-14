@@ -32,7 +32,7 @@
 <div id="list">Loading...</div>
 
 <script>
-const API_URL = "https://script.google.com/macros/s/AKfycbyOd0THjlBOb8CR03VIsTsDa3yVGRHxc3dl6EZtFVtb7IgbysKnp-ZwDL-FB5j0XIiaFA/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycby4p5Bp_tl5yRnCNz3CxIOjlWoJdyPp6dlyFkOsqMqrA56m2j4Xt2RNz8SNqAHT411mFw/exec";
 
 fetch(API_URL)
   .then(res => res.json())
@@ -40,35 +40,32 @@ fetch(API_URL)
     const list = document.getElementById("list");
     list.innerHTML = "";
 
-    if (data.length === 0) {
-      list.innerHTML = "<p>Data belum tersedia</p>";
+    if (!data || data.length === 0) {
+      list.innerHTML = "<p class='col-span-full text-center'>Nomor belum tersedia</p>";
       return;
     }
 
-data.forEach(item => {
-  const harga = parseInt(
-    String(item.harga).replace(/[^0-9]/g, "")
-  );
-
-  list.innerHTML += `
-    <div class="border rounded-2xl p-6 shadow hover:shadow-lg transition">
-      <div class="text-lg font-bold mb-1">${item.nomor}</div>
-      <div class="text-sm text-gray-500 mb-2">${item.kategori}</div>
-      <div class="text-green-600 font-extrabold text-xl">
-        Rp ${harga.toLocaleString()}
-      </div>
-    </div>
-  `;
-});
+    data.forEach(item => {
+      list.innerHTML += `
+        <div class="border rounded-2xl p-6 shadow hover:shadow-lg transition">
+          <div class="text-lg font-bold mb-1">${item.Nomor ?? item.nomor}</div>
+          <div class="text-sm text-gray-500 mb-2">${item.Kategori ?? item.kategori}</div>
+          <div class="text-green-600 font-extrabold text-xl">
+            Rp ${parseInt(String(item.Harga ?? item.harga).replace(/[^0-9]/g, "")).toLocaleString()}
+          </div>
+        </div>
+      `;
+    });
   })
   .catch(err => {
-    document.getElementById("list").innerHTML = "Gagal memuat data";
+    document.getElementById("list").innerHTML =
+      "<p class='col-span-full text-center text-red-500'>Gagal memuat data</p>";
     console.error(err);
   });
 </script>
-
 </body>
 </html>
+
 
 
 
