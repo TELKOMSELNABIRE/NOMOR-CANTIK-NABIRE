@@ -46,12 +46,16 @@ fetch(API_URL)
     }
 
 data.forEach(item => {
+  const harga = parseInt(
+    String(item.harga).replace(/[^0-9]/g, "")
+  );
+
   list.innerHTML += `
     <div class="border rounded-2xl p-6 shadow hover:shadow-lg transition">
       <div class="text-lg font-bold mb-1">${item.nomor}</div>
       <div class="text-sm text-gray-500 mb-2">${item.kategori}</div>
       <div class="text-green-600 font-extrabold text-xl">
-        Rp ${Number(item.harga).toLocaleString()}
+        Rp ${harga.toLocaleString()}
       </div>
     </div>
   `;
@@ -65,5 +69,6 @@ data.forEach(item => {
 
 </body>
 </html>
+
 
 
