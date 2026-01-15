@@ -1,148 +1,267 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <title>Perdana Spesial Nomor Cantik | Telkomsel Nabire</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perdana Spesial Nomor Cantik | Telkomsel Nabire</title>
 
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- Google Font (Mirip KV Telkomsel) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
 
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-    }
+body {
+  background: #b81414;
+  color: #fff;
+}
 
-    /* Judul utama ala KV */
-    .kv-title {
-      color: #ffffff;
-      font-weight: 900;
-      line-height: 1.1;
-      letter-spacing: -1px;
-      text-shadow:
-        -3px -3px 0 #f7941d,
-         3px -3px 0 #f7941d,
-        -3px  3px 0 #f7941d,
-         3px  3px 0 #f7941d,
-         0px  8px 16px rgba(0,0,0,0.45);
-    }
+/* ================= HEADER ================= */
+.header {
+  max-width: 1200px;
+  margin: auto;
+  padding: 50px 20px 20px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  align-items: center;
+}
 
-    .kv-subtitle {
-      color: #ffd200;
-      font-weight: 700;
-      text-shadow: 0 4px 8px rgba(0,0,0,0.4);
-    }
+.location {
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 0.9;
+}
 
-    .kv-number {
-      font-size: 3rem;
-      font-weight: 900;
-      color: #ffffff;
-      text-shadow: 0 4px 10px rgba(0,0,0,0.4);
-    }
-  </style>
+h1 {
+  font-size: 48px;
+  line-height: 1.1;
+  margin: 10px 0 10px;
+  color: #fff;
+
+  text-shadow:
+    -4px -4px 0 #ff9800,
+     4px -4px 0 #ff9800,
+    -4px  4px 0 #ff9800,
+     4px  4px 0 #ff9800,
+     0px  6px 10px rgba(0,0,0,0.6);
+}
+
+.subtitle {
+  color: #ffd400;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.quota {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 18px;
+}
+
+.quota div span {
+  display: block;
+  font-size: 13px;
+}
+
+.quota div strong {
+  font-size: 30px;
+}
+
+.notes {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.hero {
+  background: linear-gradient(135deg,#7a0000,#ff0000);
+  padding: 20px;
+  border-radius: 26px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.45);
+}
+
+.hero img {
+  width: 100%;
+  border-radius: 22px;
+}
+
+/* ================= SECTION ================= */
+.section {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.section h2 {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+/* ================= SEARCH ================= */
+.search-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.search-wrapper input {
+  width: 420px;
+  max-width: 90%;
+  padding: 14px 18px;
+  border-radius: 14px;
+  border: none;
+  outline: none;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  box-shadow:
+    0 8px 0 rgba(0,0,0,0.25),
+    0 18px 35px rgba(0,0,0,0.4);
+}
+
+/* ================= GRID ================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+  gap: 20px;
+}
+
+.number-card {
+  background: #fff;
+  color: #111;
+  padding: 18px;
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+  transition: transform .2s;
+}
+
+.number-card:hover {
+  transform: translateY(-5px);
+}
+
+.number-card strong {
+  font-size: 18px;
+}
+
+.status {
+  font-size: 13px;
+  margin: 6px 0;
+}
+
+.price {
+  font-weight: 800;
+  color: #0a9c3d;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  text-align: center;
+  font-size: 13px;
+  opacity: 0.7;
+  padding: 40px 20px;
+}
+</style>
 </head>
 
-<body class="bg-[#b71c1c] text-white">
+<body>
 
-<!-- HEADER -->
-<header class="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
-  <div class="text-xl font-extrabold">Nabire</div>
-  <img src="LOGO TSEL PUTIH.png" alt="Telkomsel" class="h-8">
-</header>
-
-<!-- HERO -->
-<section class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-
-  <!-- TEXT -->
+<!-- ================= HEADER ================= -->
+<div class="header">
   <div>
-    <h1 class="kv-title text-4xl md:text-6xl mb-4">
-      Perdana Spesial<br>
-      Nomor Cantik
-    </h1>
+    <div class="location">Nabire</div>
 
-    <p class="kv-subtitle text-lg md:text-xl mb-6">
-      Bonus Kuota 260GB Selama Setahun
-    </p>
+    <h1>Perdana Spesial<br>Nomor Cantik</h1>
 
-    <div class="flex gap-10 mb-6">
+    <div class="subtitle">Bonus Kuota 260GB Selama Setahun</div>
+
+    <div class="quota">
       <div>
-        <div class="text-sm">Bulan Pertama</div>
-        <div class="kv-number">40GB</div>
+        <span>Bulan Pertama</span>
+        <strong>40GB</strong>
       </div>
       <div>
-        <div class="text-sm">Bulan Kedua & Seterusnya</div>
-        <div class="kv-number">20GB</div>
+        <span>Bulan Kedua & Seterusnya</span>
+        <strong>20GB</strong>
       </div>
     </div>
 
-    <ul class="text-sm space-y-1">
-      <li>• Stok terbatas</li>
-      <li>• Kuota berlaku setiap bulan</li>
-      <li>• Masa aktif hingga 2027 setelah registrasi</li>
-    </ul>
+    <div class="notes">
+      • Stok terbatas<br>
+      • Kuota berlaku setiap bulan<br>
+      • Masa aktif hingga 2027 setelah registrasi
+    </div>
   </div>
 
-  <!-- IMAGE -->
-  <div class="flex justify-center">
-    <img src="PERDANA SPESIAL NOMOR CANTIK.png" alt="Promo Telkomsel"
-         class="rounded-3xl shadow-2xl max-w-md w-full">
+  <div class="hero">
+    <img src="PERDANA SPESIAL NOMOR CANTIK.png" alt="Telkomsel">
+  </div>
+</div>
+
+<!-- ================= LIST ================= -->
+<div class="section">
+  <h2>Daftar Nomor Cantik</h2>
+
+  <div class="search-wrapper">
+    <input type="text" id="searchNumber"
+      placeholder="Cari nomor cantik (contoh: 08138)"
+      onkeyup="filterNumbers()">
   </div>
 
-</section>
+  <div class="grid">
+    <div class="number-card">
+      <strong>81380198555</strong>
+      <div class="status">Sold Out</div>
+      <div class="price">Rp 450.000</div>
+    </div>
 
-<!-- LIST NOMOR -->
-<section class="max-w-7xl mx-auto px-6 mt-20">
-  <h2 class="text-3xl font-extrabold text-center mb-10">
-    Daftar Nomor Cantik
-  </h2>
+    <div class="number-card">
+      <strong>81380199933</strong>
+      <div class="status">Tersedia</div>
+      <div class="price">Rp 450.000</div>
+    </div>
 
-  <div id="list" class="grid md:grid-cols-3 gap-6">
-    <div class="text-center col-span-full">Memuat data...</div>
+    <div class="number-card">
+      <strong>81380200111</strong>
+      <div class="status">Tersedia</div>
+      <div class="price">Rp 450.000</div>
+    </div>
+
+    <div class="number-card">
+      <strong>81380194444</strong>
+      <div class="status">Tersedia</div>
+      <div class="price">Rp 450.000</div>
+    </div>
+
+    <div class="number-card">
+      <strong>81380197555</strong>
+      <div class="status">Tersedia</div>
+      <div class="price">Rp 450.000</div>
+    </div>
   </div>
-</section>
+</div>
 
-<!-- FOOTER -->
-<footer class="mt-20 py-6 text-center text-sm opacity-70">
-  © 2026 Telkomsel Nabire
+<footer>
+© Telkomsel Nabire
 </footer>
 
-<!-- SCRIPT GOOGLE SHEET (CSV PUBLIK) -->
 <script>
-const CSV_URL =
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vQvpq2x-mW4BIZQvynQKfN0stOXX6lgPxaq6_njg_VY8PKKJljU7JcTQRCOKCHYhMKgZ33tmoS_zYmj/pub?output=csv";
+function filterNumbers() {
+  const input = document.getElementById("searchNumber").value.toLowerCase();
+  const cards = document.getElementsByClassName("number-card");
 
-fetch(CSV_URL)
-  .then(res => res.text())
-  .then(csv => {
-    const rows = csv.trim().split("\n").slice(1);
-    const list = document.getElementById("list");
-    list.innerHTML = "";
-
-    rows.forEach(row => {
-      const [nomor, kategori, harga] = row.split(",");
-
-      list.innerHTML += `
-        <div class="bg-white text-gray-800 rounded-2xl p-6 shadow-xl">
-          <div class="text-lg font-bold">${nomor}</div>
-          <div class="text-sm text-gray-500">${kategori}</div>
-          <div class="text-green-600 font-extrabold text-xl mt-2">
-            Rp ${Number(harga).toLocaleString("id-ID")}
-          </div>
-        </div>
-      `;
-    });
-  })
-  .catch(() => {
-    document.getElementById("list").innerHTML =
-      "<div class='col-span-full text-center'>Gagal memuat data</div>";
-  });
+  for (let i = 0; i < cards.length; i++) {
+    const text = cards[i].innerText.toLowerCase();
+    cards[i].style.display = text.includes(input) ? "block" : "none";
+  }
+}
 </script>
 
 </body>
 </html>
-
