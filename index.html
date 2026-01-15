@@ -2,107 +2,146 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Perdana Spesial Nomor Cantik | Telkomsel Nabire</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Google Font (Mirip KV Telkomsel) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+
   <style>
-    body { font-family: 'Inter', sans-serif; }
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Judul utama ala KV */
+    .kv-title {
+      color: #ffffff;
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      text-shadow:
+        -3px -3px 0 #f7941d,
+         3px -3px 0 #f7941d,
+        -3px  3px 0 #f7941d,
+         3px  3px 0 #f7941d,
+         0px  8px 16px rgba(0,0,0,0.45);
+    }
+
+    .kv-subtitle {
+      color: #ffd200;
+      font-weight: 700;
+      text-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    }
+
+    .kv-number {
+      font-size: 3rem;
+      font-weight: 900;
+      color: #ffffff;
+      text-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
   </style>
 </head>
-<body class="bg-red-700 text-white">
+
+<body class="bg-[#b71c1c] text-white">
 
 <!-- HEADER -->
 <header class="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
-  <h1 class="text-2xl font-extrabold">Nabire</h1>
+  <div class="text-xl font-extrabold">Nabire</div>
   <img src="LOGO TSEL PUTIH.png" alt="Telkomsel" class="h-8">
 </header>
 
 <!-- HERO -->
-<section class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+<section class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
 
   <!-- TEXT -->
   <div>
-    <h2 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4 drop-shadow">
-      Perdana Spesial<br>Nomor Cantik
-    </h2>
+    <h1 class="kv-title text-4xl md:text-6xl mb-4">
+      Perdana Spesial<br>
+      Nomor Cantik
+    </h1>
 
-    <p class="text-xl font-bold mb-4">
-      Bonus Kuota <span class="text-yellow-300">260GB</span> Selama Setahun
+    <p class="kv-subtitle text-lg md:text-xl mb-6">
+      Bonus Kuota 260GB Selama Setahun
     </p>
 
-    <div class="flex gap-6 mb-6">
+    <div class="flex gap-10 mb-6">
       <div>
-        <p class="text-sm">Bulan Pertama</p>
-        <p class="text-3xl font-extrabold">40GB</p>
+        <div class="text-sm">Bulan Pertama</div>
+        <div class="kv-number">40GB</div>
       </div>
       <div>
-        <p class="text-sm">Bulan Kedua & Seterusnya</p>
-        <p class="text-3xl font-extrabold">20GB</p>
+        <div class="text-sm">Bulan Kedua & Seterusnya</div>
+        <div class="kv-number">20GB</div>
       </div>
     </div>
 
-    <ul class="text-sm space-y-2">
-      <li>• Stok Terbatas</li>
+    <ul class="text-sm space-y-1">
+      <li>• Stok terbatas</li>
       <li>• Kuota berlaku setiap bulan</li>
       <li>• Masa aktif hingga 2027 setelah registrasi</li>
     </ul>
   </div>
 
   <!-- IMAGE -->
-  <div class="relative">
-    <div class="bg-gradient-to-br from-pink-500 to-red-800 rounded-[3rem] p-6">
-      <img src="hero.jpg" alt="Perdana Telkomsel" class="rounded-[2.5rem]">
-    </div>
+  <div class="flex justify-center">
+    <img src="hero.jpg" alt="Promo Telkomsel"
+         class="rounded-3xl shadow-2xl max-w-md w-full">
   </div>
 
 </section>
 
 <!-- LIST NOMOR -->
 <section class="max-w-7xl mx-auto px-6 mt-20">
-  <h3 class="text-3xl font-extrabold mb-8 text-center">Daftar Nomor Cantik</h3>
+  <h2 class="text-3xl font-extrabold text-center mb-10">
+    Daftar Nomor Cantik
+  </h2>
 
-  <div id="list" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    <div class="text-center col-span-full">Loading...</div>
+  <div id="list" class="grid md:grid-cols-3 gap-6">
+    <div class="text-center col-span-full">Memuat data...</div>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="mt-24 py-6 text-center text-sm text-white/80">
-  © 2026 Telkomsel Nabire. All rights reserved.
+<footer class="mt-20 py-6 text-center text-sm opacity-70">
+  © 2026 Telkomsel Nabire
 </footer>
 
+<!-- SCRIPT GOOGLE SHEET (CSV PUBLIK) -->
 <script>
-const DATA_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQvpq2x-mW4BIZQvynQKfN0stOXX6lgPxaq6_njg_VY8PKKJljU7JcTQRCOKCHYhMKgZ33tmoS_zYmj/pub?output=csv";
+const CSV_URL =
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vQvpq2x-mW4BIZQvynQKfN0stOXX6lgPxaq6_njg_VY8PKKJljU7JcTQRCOKCHYhMKgZ33tmoS_zYmj/pub?output=csv";
 
-fetch(DATA_URL)
+fetch(CSV_URL)
   .then(res => res.text())
   .then(csv => {
-    const rows = csv.split("\n").slice(1);
+    const rows = csv.trim().split("\n").slice(1);
     const list = document.getElementById("list");
     list.innerHTML = "";
 
     rows.forEach(row => {
-      if (!row.trim()) return;
       const [nomor, kategori, harga] = row.split(",");
 
       list.innerHTML += `
-        <div class="bg-white text-gray-800 rounded-2xl p-6 shadow">
+        <div class="bg-white text-gray-800 rounded-2xl p-6 shadow-xl">
           <div class="text-lg font-bold">${nomor}</div>
           <div class="text-sm text-gray-500">${kategori}</div>
-          <div class="text-red-600 font-extrabold text-xl mt-2">Rp ${Number(harga).toLocaleString()}</div>
+          <div class="text-green-600 font-extrabold text-xl mt-2">
+            Rp ${Number(harga).toLocaleString("id-ID")}
+          </div>
         </div>
       `;
     });
   })
   .catch(() => {
-    document.getElementById("list").innerText = "Gagal memuat data";
+    document.getElementById("list").innerHTML =
+      "<div class='col-span-full text-center'>Gagal memuat data</div>";
   });
 </script>
 
 </body>
 </html>
-
-
-
-
